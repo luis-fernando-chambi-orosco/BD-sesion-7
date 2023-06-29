@@ -68,7 +68,7 @@ CREATE TABLE `entrenador` (
 
 LOCK TABLES `entrenador` WRITE;
 /*!40000 ALTER TABLE `entrenador` DISABLE KEYS */;
-INSERT INTO `entrenador` VALUES (5001,3001,'Pep Guardiola','75134489','A'),(5002,3003,'Jose Acuña','75451111','A'),(5003,3004,'Mauricio Pochettino','45789312','A'),(5005,3006,'Luis Enrique','75489636','A');
+INSERT INTO `entrenador` VALUES (5001,3001,'jose carlos','75458936','A'),(5002,3003,'Jurgen felipe','12345678','A'),(5004,3005,'Paulo Fonseca','47896512','A'),(5005,3006,'Renato Gaucho','14578962','A');
 /*!40000 ALTER TABLE `entrenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,4 +426,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-28  2:11:37
+-- Dump completed on 2023-06-28 22:03:04

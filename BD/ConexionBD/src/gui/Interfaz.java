@@ -33,7 +33,11 @@ public class Interfaz extends JFrame {
 	private JTable table;
 	private JButton btnAgregar;
 	private JButton btnBorrar;
+	private JButton btnModificar;
+	private JButton btnReactivar;
+	private JButton btnInactivar;
 	private JButton btnActualizar;
+	private JButton btnSalir;
 	private JLabel lblNewLabel_7;
 
 	/**
@@ -107,7 +111,7 @@ public class Interfaz extends JFrame {
 		PanelEntrenador.add(textEstado);
 		textEstado.setColumns(10);
 		
-		btnAgregar = new JButton("Agregar");
+		btnAgregar = new JButton("Adicionar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -115,26 +119,30 @@ public class Interfaz extends JFrame {
 		btnAgregar.setBounds(64, 262, 89, 23);
 		PanelEntrenador.add(btnAgregar);
 		
-		btnActualizar = new JButton("Actualizar");
-		btnActualizar.setBounds(223, 262, 103, 23);
-		PanelEntrenador.add(btnActualizar);
+		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnModificar.setBounds(199, 262, 103, 23);
+		PanelEntrenador.add(btnModificar);
 		
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnBorrar.setBounds(363, 262, 89, 23);
+		btnBorrar.setBounds(339, 262, 89, 23);
 		PanelEntrenador.add(btnBorrar);
 		
 		JLabel lblNewLabel_6 = new JLabel("Lista de Entrenadores ");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel_6.setBounds(200, 314, 151, 14);
+		lblNewLabel_6.setBounds(199, 348, 151, 14);
 		PanelEntrenador.add(lblNewLabel_6);
 		
 		JScrollPane tblTabla = new JScrollPane();
-		tblTabla.setBounds(30, 369, 524, 187);
+		tblTabla.setBounds(30, 417, 524, 187);
 		PanelEntrenador.add(tblTabla);
 		
 		table = new JTable();
@@ -146,10 +154,86 @@ public class Interfaz extends JFrame {
 		));
 		tblTabla.setViewportView(table);
 		
-		lblNewLabel_7 = new JLabel("Seleccionar un entrenador para actualizar o borrar");
-		lblNewLabel_7.setBounds(101, 339, 366, 14);
+		lblNewLabel_7 = new JLabel("Seleccionar un entrenador para modificar o borrar");
+		lblNewLabel_7.setBounds(106, 373, 366, 14);
 		PanelEntrenador.add(lblNewLabel_7);
 		
+		btnReactivar = new JButton("Reactivar");
+		btnReactivar.setBounds(339, 296, 89, 23);
+		PanelEntrenador.add(btnReactivar);
+		
+		btnInactivar = new JButton("Inactivar");
+		btnInactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnInactivar.setBounds(197, 296, 105, 23);
+		PanelEntrenador.add(btnInactivar);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnActualizar.setBounds(64, 296, 103, 23);
+		PanelEntrenador.add(btnActualizar);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSalir.setBounds(476, 262, 89, 23);
+		PanelEntrenador.add(btnSalir);
+		
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
+	}
+
+	public JButton getBtnReactivar() {
+		return btnReactivar;
+	}
+
+	public void setBtnReactivar(JButton btnReactivar) {
+		this.btnReactivar = btnReactivar;
+	}
+
+	public JButton getBtnInactivar() {
+		return btnInactivar;
+	}
+
+	public void setBtnInactivar(JButton btnInactivar) {
+		this.btnInactivar = btnInactivar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActulizar) {
+		this.btnActualizar = btnActulizar;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	public JLabel getLblNewLabel_7() {
+		return lblNewLabel_7;
+	}
+
+	public void setLblNewLabel_7(JLabel lblNewLabel_7) {
+		this.lblNewLabel_7 = lblNewLabel_7;
 	}
 
 	public JButton getBtnAgregar() {
@@ -167,15 +251,6 @@ public class Interfaz extends JFrame {
 	public void setBtnBorrar(JButton btnBorrar) {
 		this.btnBorrar = btnBorrar;
 	}
-
-	public JButton getBtnActualizar() {
-		return btnActualizar;
-	}
-
-	public void setBtnActualizar(JButton btnActualizar) {
-		this.btnActualizar = btnActualizar;
-	}
-
 	public JPanel getPanelEntrenador() {
 		return PanelEntrenador;
 	}
@@ -231,6 +306,5 @@ public class Interfaz extends JFrame {
 	public void setTable(JTable table) {
 		this.table = table;
 	}
-
 
 }

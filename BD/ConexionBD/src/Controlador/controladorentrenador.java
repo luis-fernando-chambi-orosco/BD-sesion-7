@@ -35,6 +35,8 @@ public void agregareventos() {
 	vista.getBtnAgregar().addActionListener(this);
 	vista.getBtnActualizar().addActionListener(this);
 	vista.getBtnBorrar().addActionListener(this);
+	vista.getBtnSalir().addActionListener(this);
+	vista.getBtnModificar().addActionListener(this);
 	vista.getTable().addMouseListener(new MouseAdapter() {
 		public void mouseClicked(MouseEvent e) {
 			llenar(e);
@@ -108,25 +110,21 @@ public void agregar() {
 	} catch (Exception e) {
 		// TODO: handle exception
 		System.out.println("error al agregar"+e);
-	}finally {
-		listartabla();
 	}
 }
-public void actualizar() {
+public void modificar() {
 	try {
 		if(validardatosent()) {
 		if(cargardatosent()) {
 				entrenador ent=new entrenador(codigo,codigo_equipo,nombre,DNI,estado);
 				entDAO.actualizar(ent);
-				JOptionPane.showMessageDialog(null, "actualizacion exitosa");
+				JOptionPane.showMessageDialog(null, "modificacion exitosa");
 				limpiar();
 		}
 		}
 	} catch (Exception e) {
 		// TODO: handle exception
 		System.out.println("error al actualizar datos"+e);
-	}finally {
-		listartabla();
 	}
 }
 public void borrar() {
@@ -139,8 +137,23 @@ public void borrar() {
 			}
 	} catch (Exception e) {
 		System.out.println("error al borrar datos"+e);
-	}finally {
+	}
+}
+public void salir() {
+	try {
+		JOptionPane.showMessageDialog(null, "se salio exitosamente del programa");
+		System.exit(0);
+	} catch (Exception e) {
+		System.out.println("ocurrio un error inesperado"+e);
+	}
+}
+public void actualizar() {
+	try {
 		listartabla();
+		JOptionPane.showMessageDialog(null, "se actualizo la tabla exitosamente");
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("ocurrio un error inesperado al querer actualizar la tabla"+e);
 	}
 }
 // con esto daremos acciones a los botones
@@ -149,10 +162,15 @@ public void borrar() {
 		// TODO Auto-generated method stub
 		if(e.getSource()==vista.getBtnAgregar()) {
 			agregar();
-		}if(e.getSource()==vista.getBtnActualizar()) {
-			actualizar();
+		}if(e.getSource()==vista.getBtnModificar()) {
+			modificar();
 		}if(e.getSource()==vista.getBtnBorrar()) {
 			borrar();
+		}if(e.getSource()==vista.getBtnActualizar()) {
+			actualizar();
+		}
+		if(e.getSource()==vista.getBtnSalir()) {
+		salir();
 		}
 			
 	}
