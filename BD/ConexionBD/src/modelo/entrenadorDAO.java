@@ -48,6 +48,7 @@ public void agregar(entrenador ent) {
 		ps.setString(4, ent.getDni());
 		ps.setString(5, ent.getEstado());
 		ps.executeUpdate();
+		//ps.executeQuery();
 	} catch (Exception e) {
 		System.out.println("error al agregar"+e);
 	}
