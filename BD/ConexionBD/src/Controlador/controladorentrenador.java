@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import gui.Interfaz;
 import modelo.entrenador;
 import modelo.entrenadorDAO;
+import modelo.eventos;
 
 public class controladorentrenador implements ActionListener {
 	 int codigo=0;
@@ -37,6 +38,9 @@ public void agregareventos() {
 	vista.getBtnBorrar().addActionListener(this);
 	vista.getBtnSalir().addActionListener(this);
 	vista.getBtnModificar().addActionListener(this);
+	vista.getBtnButtonCancelar().addActionListener(this);
+	vista.getBtnInactivar().addActionListener(this);
+	vista.getBtnReactivar().addActionListener(this);
 	vista.getTable().addMouseListener(new MouseAdapter() {
 		public void mouseClicked(MouseEvent e) {
 			llenar(e);
@@ -156,6 +160,36 @@ public void actualizar() {
 		System.out.println("ocurrio un error inesperado al querer actualizar la tabla"+e);
 	}
 }
+public void inactivar(){
+	try {
+		if (validardatosent()) {
+			if (cargardatosent()) {
+				entrenador ent=new entrenador(codigo,codigo_equipo,nombre,DNI,"I");
+				entDAO.dejarInactivo(ent);;
+				JOptionPane.showMessageDialog(null, "inactivacion exitosa");
+				limpiar();
+			}
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("error al inactivar" + e);
+	}
+}
+public void reactivar(){
+	try {
+		if (validardatosent()) {
+			if (cargardatosent()) {
+				entrenador ent=new entrenador(codigo,codigo_equipo,nombre,DNI,"A");
+				entDAO.volverActivo(ent);
+				JOptionPane.showMessageDialog(null, "Reactivacion exitosa");
+				limpiar();
+			}
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("error al activar" + e);
+	}
+}
 // con esto daremos acciones a los botones
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -171,6 +205,15 @@ public void actualizar() {
 		}
 		if(e.getSource()==vista.getBtnSalir()) {
 		salir();
+		}
+		if(e.getSource()==vista.getBtnButtonCancelar()) {
+			limpiar();
+		}if (e.getSource() == vista.getBtnInactivar()){
+			inactivar();
+		}
+
+		if (e.getSource() == vista.getBtnReactivar()){
+			reactivar();
 		}
 			
 	}
