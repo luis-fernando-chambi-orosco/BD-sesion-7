@@ -14,7 +14,33 @@ Conexion conec= new Conexion();
 Connection con;
 PreparedStatement ps;
 ResultSet rs;
+public void dejarInactivo(entrenador eve) {
+	String sql = "UPDATE entrenador SET EntEstReg=? WHERE EntCod=?";
+	try {
+		con = conec.conectar();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, eve.getEstado());
+		ps.setInt(2, eve.getCodigo());
+		ps.executeUpdate();
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("error" + e);
+	}
+}
 
+public void volverActivo(entrenador eve) {
+	String sql = "UPDATE entrenador SET EntEstReg=? WHERE EntCod=?";
+	try {
+		con = conec.conectar();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, eve.getEstado());
+		ps.setInt(2, eve.getCodigo());
+		ps.executeUpdate();
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("error" + e);
+	}
+}
 public List Listar() {
 	String sql="select * from entrenador";
 	List<entrenador> lista = new ArrayList<>();
@@ -46,9 +72,12 @@ public void agregar(entrenador ent) {
 		ps.setInt(2, ent.getCodigo_equipo());
 		ps.setString(3, ent.getNombre());
 		ps.setString(4, ent.getDni());
-		ps.setString(5, ent.getEstado());
+		String estado = ent.getEstado();
+		 if (estado.isEmpty()) {
+	            estado = "A";
+	        }
+	        ps.setString(5, estado);
 		ps.executeUpdate();
-		//ps.executeQuery();
 	} catch (Exception e) {
 		System.out.println("error al agregar"+e);
 	}

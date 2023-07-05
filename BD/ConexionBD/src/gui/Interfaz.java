@@ -38,6 +38,7 @@ public class Interfaz extends JFrame {
 	private JButton btnInactivar;
 	private JButton btnActualizar;
 	private JButton btnSalir;
+	private JButton btnButtonCancelar;
 	private JLabel lblNewLabel_7;
 
 	/**
@@ -106,7 +107,8 @@ public class Interfaz extends JFrame {
 		PanelEntrenador.add(textCodigoEquipo);
 		textCodigoEquipo.setColumns(10);
 		
-		textEstado = new JTextField();
+		textEstado = new JTextField("A");
+		textEstado.setEditable(false);
 		textEstado.setBounds(155, 219, 86, 20);
 		PanelEntrenador.add(textEstado);
 		textEstado.setColumns(10);
@@ -134,6 +136,14 @@ public class Interfaz extends JFrame {
 		});
 		btnBorrar.setBounds(339, 262, 89, 23);
 		PanelEntrenador.add(btnBorrar);
+		
+		btnButtonCancelar = new JButton("Cancelar");
+		btnButtonCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnButtonCancelar.setBounds(476, 296, 89, 23);
+		getContentPane().add(btnButtonCancelar);
 		
 		JLabel lblNewLabel_6 = new JLabel("Lista de Entrenadores ");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -186,6 +196,14 @@ public class Interfaz extends JFrame {
 		btnSalir.setBounds(476, 262, 89, 23);
 		PanelEntrenador.add(btnSalir);
 		
+	}
+
+	public JButton getBtnButtonCancelar() {
+		return btnButtonCancelar;
+	}
+
+	public void setBtnButtonCancelar(JButton btnButtonCancelar) {
+		this.btnButtonCancelar = btnButtonCancelar;
 	}
 
 	public JButton getBtnModificar() {
@@ -306,5 +324,7 @@ public class Interfaz extends JFrame {
 	public void setTable(JTable table) {
 		this.table = table;
 	}
+
+	
 
 }
