@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexionEQU {
+public class ConexionEST {
 
     private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/liga_de_futbol";
@@ -26,7 +26,7 @@ public class ConexionEQU {
     }
 
     public static void main(String[] args) {
-        Conexion c1 = new Conexion();
+        ConexionEST c1 = new ConexionEST();
         Connection cn = null;
         Statement stm = null;
         ResultSet rs = null;
@@ -34,13 +34,13 @@ public class ConexionEQU {
         try {
             cn = c1.conectar();
             stm = cn.createStatement();
-            rs = stm.executeQuery("SELECT * FROM equipos");
+            rs = stm.executeQuery("SELECT * FROM estadio");
             while (rs.next()) {
-                int id = rs.getInt("EquCod");
-                String nombre = rs.getString("EquNom");
-                String estadoRegistro = rs.getString("EquEstReg");
+                int id = rs.getInt("EstCod");
+                String nombre = rs.getString("EstNom");
+                String estadoRegistro = rs.getString("EstEstReg");
 
-                System.out.println("ID equipo: " + id + ", Nombre: " + nombre + ", Estado de registro: " + estadoRegistro);
+                System.out.println("ID estadio: " + id + ", Nombre: " + nombre + ", Estado de registro: " + estadoRegistro);
             }
 
         } catch (SQLException e) {
