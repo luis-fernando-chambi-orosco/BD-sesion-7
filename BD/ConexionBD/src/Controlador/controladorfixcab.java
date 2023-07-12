@@ -84,7 +84,7 @@ public boolean cargardatoscab() {
 }
 public void limpiarcab() {
 	vista.getCodcab().setText("");
-	vista.getCodlig().setText(" ");
+	vista.getCodlig().setText("");
 	vista.getEstado().setText("");
 }
 public void agregarcab() {

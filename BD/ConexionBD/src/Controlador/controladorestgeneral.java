@@ -16,7 +16,7 @@ import modelo.estadisticageneral;
 import modelo.estadisticageneralDAO;
 
 public class controladorestgeneral implements ActionListener{
-	 int codigo;
+	 int codigo=0;
 	 int goles;
 	 int amarillas;
 	 int rojas;
@@ -70,7 +70,7 @@ public void llenar_estgen(MouseEvent e) {
 	vista.getEstado().setText(vista.getTableestgen().getModel().getValueAt(target.getSelectedRow(), 5).toString());
 }
 public boolean validardatosestgen() {
-	if("".equals(vista.getCod().getText())||"".equals(vista.getNumgoles().getText())||"".equals(vista.getTarjamar().getText())||"".equals(vista.getTarjroj().getText())||"".equals(vista.getCodliga().getText())) {
+	if("".equals(vista.getNumgoles().getText())||"".equals(vista.getTarjamar().getText())||"".equals(vista.getTarjroj().getText())||"".equals(vista.getCodliga().getText())) {
 		JOptionPane.showMessageDialog(null, "los campos no pueden estar vacios");
 		return false;
 	}
@@ -88,17 +88,17 @@ public boolean cargardatosestgen() {
 		return true;
 	} catch (Exception e) {
 		// TODO: handle exception
-		System.out.println("error al cargar datos"+e);
+		System.out.println("error al cargarhgh datos"+e);
 		return false;
 	}
 }
 public void limpiarestgen() {
 	vista.getCod().setText("");
-	vista.getNumgoles().setText(" ");
-	vista.getTarjamar().setText(" ");
+	vista.getNumgoles().setText("");
+	vista.getTarjamar().setText("");
 	vista.getTarjroj().setText("");
-	vista.getCodliga().setText(" ");
-	vista.getEstado().setText(" ");
+	vista.getCodliga().setText("");
+	vista.getEstado().setText("A");
 }
 public void agregarestgen() {
 	try {

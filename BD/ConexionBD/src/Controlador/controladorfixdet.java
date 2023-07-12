@@ -88,8 +88,8 @@ public boolean cargardatoscab() {
 }
 public void limpiardet() {
 	vista.getCodcab().setText("");
-	vista.getCod().setText(" ");
-	vista.getCodpart().setText(" ");
+	vista.getCod().setText("");
+	vista.getCodpart().setText("");
 	vista.getEstado().setText("");
 }
 public void agregardet() {
