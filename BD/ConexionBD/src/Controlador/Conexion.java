@@ -9,7 +9,7 @@ package Controlador;
 		private static final String CONTROLADOR="com.mysql.cj.jdbc.Driver";
 		private static final String URL="jdbc:mysql://localhost:3306/liga_de_futbol";
 		private static final String USUARIO="root";
-		private static final String CLAVE="1234";
+		private static final String CLAVE="123456789";
 		
 		public Connection conectar() {
 			Connection conexion=null;
