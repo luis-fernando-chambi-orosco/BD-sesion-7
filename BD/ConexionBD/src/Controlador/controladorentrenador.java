@@ -133,12 +133,13 @@ public void modificar() {
 }
 public void borrar() {
 	try {
-		if(codigo!=0) {
-					entDAO.borrar(codigo);
+		//if(codigo!=0) {
+				entrenador ent=new entrenador(codigo,codigo_equipo,nombre,DNI,"*");
+					entDAO.borrar(ent);
 					JOptionPane.showMessageDialog(null, "registro borrado exitosamente");
 					limpiar();
 			
-			}
+			//}
 	} catch (Exception e) {
 		System.out.println("error al borrar datos"+e);
 	}
