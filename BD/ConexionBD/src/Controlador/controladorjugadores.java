@@ -99,7 +99,7 @@ public class controladorjugadores implements ActionListener {
 	}
 
 	// validando los datos para que el usuario no meta cosas que no se pide
-	public boolean cargardatosent() {
+	public boolean cargardatosjug() {
 		try {
 			codigo = Integer.parseInt(vista.getTextCodigo().getText());
 			nombre = vista.getTextNombre().getText();
@@ -121,7 +121,7 @@ public class controladorjugadores implements ActionListener {
 		}
 	}
 
-		public boolean cargardatosentNuevo() {
+		public boolean cargardatosjugNuevo() {
 		try {
 			codigo = Integer.parseInt(vista.getTextCodigo().getText());
 			nombre = vista.getTextNombre().getText();
@@ -165,7 +165,7 @@ public class controladorjugadores implements ActionListener {
 	public void agregar() {
 		try {
 			if (validardatosent()) {
-				if (cargardatosentNuevo()) {
+				if (cargardatosjugNuevo()) {
 					jugadores jug = new jugadores(codigo, nombre, dni, posicion_jugador, codigo_equipo, numero_camiseta,
 							edad);
 					jugDAO.agregar(jug);
@@ -182,7 +182,7 @@ public class controladorjugadores implements ActionListener {
 	public void modificar() {
 		try {
 			if (validardatosent()) {
-				if (cargardatosent()) {
+				if (cargardatosjug()) {
 					jugadores jug = new jugadores(codigo, nombre, dni, posicion_jugador, codigo_equipo, numero_camiseta,
 							edad, goles, targetas_amarillas, targetas_rojas, estado);
 					jugDAO.actualizar(jug);
@@ -231,7 +231,7 @@ public class controladorjugadores implements ActionListener {
 	public void inactivar(){
 		try {
 			if (validardatosent()) {
-				if (cargardatosent()) {
+				if (cargardatosjug()) {
 					jugadores jug = new jugadores(codigo, nombre, dni, posicion_jugador, codigo_equipo, numero_camiseta,
 							edad, goles, targetas_amarillas, targetas_rojas, "I");
 					jugDAO.dejarInactivo(jug);
@@ -248,7 +248,7 @@ public class controladorjugadores implements ActionListener {
 	public void reactivar(){
 		try {
 			if (validardatosent()) {
-				if (cargardatosent()) {
+				if (cargardatosjug()) {
 					jugadores jug = new jugadores(codigo, nombre, dni, posicion_jugador, codigo_equipo, numero_camiseta,
 							edad, goles, targetas_amarillas, targetas_rojas, "A");
 					jugDAO.volverActivo(jug);
