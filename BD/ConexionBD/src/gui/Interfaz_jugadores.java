@@ -169,6 +169,10 @@ public class Interfaz_jugadores extends JFrame {
 		PanelJugadores.add(lblNewLabel_7);
 		
 		btnReactivar = new JButton("Reactivar");
+		btnReactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnReactivar.setBounds(328, 355, 100, 23);
 		PanelJugadores.add(btnReactivar);
 		
