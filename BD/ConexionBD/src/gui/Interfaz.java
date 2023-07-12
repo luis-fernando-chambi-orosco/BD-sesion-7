@@ -269,6 +269,8 @@ public class Interfaz extends JFrame {
 	public void setBtnBorrar(JButton btnBorrar) {
 		this.btnBorrar = btnBorrar;
 	}
+
+
 	public JPanel getPanelEntrenador() {
 		return PanelEntrenador;
 	}
