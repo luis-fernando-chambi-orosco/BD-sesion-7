@@ -97,11 +97,13 @@ public void actualizar(entrenador ent) {
 		System.out.println("error al actualizar"+e);
 	}
 }
-public void borrar(int id) {
-	String sql="delete from entrenador where EntCod="+id;
+public void borrar(entrenador eve) {
+	String sql="UPDATE entrenador SET EntEstReg=? WHERE EntCod=?";
 	try {
-		con=conec.conectar();
-		ps=con.prepareStatement(sql);
+		con = conec.conectar();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, eve.getEstado());
+		ps.setInt(2, eve.getCodigo());
 		ps.executeUpdate();
 	} catch (Exception e) {
 		// TODO: handle exception
