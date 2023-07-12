@@ -96,13 +96,15 @@ public class ligaDAO {
     }
 
     public void borrar(int id) {
-        String sql = "DELETE FROM liga WHERE LigCod=" + id;
+        String sql = "UPDATE liga SET LigEstReg='*' WHERE LigCod=?";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al borrar: " + e);
         }
     }
+    
 }

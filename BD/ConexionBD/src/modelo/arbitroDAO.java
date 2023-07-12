@@ -102,13 +102,15 @@ public class arbitroDAO {
     }
 
     public void borrar(int id) {
-        String sql = "DELETE FROM arbitros WHERE ArbCod=" + id;
+        String sql = "UPDATE arbitros SET ArbEstReg='*' WHERE ArbCod=?";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al borrar: " + e);
         }
     }
+    
 }

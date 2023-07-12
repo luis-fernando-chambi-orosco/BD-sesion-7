@@ -62,7 +62,7 @@ public class equipoDAO {
     }
 
     public void agregar(equipo equi) {
-        String sql = "INSERT INTO equipos (EquNom, EquEstReg) VALUES (?, ?)";
+        String sql = "INSERT INTO equipos (Attribute1, EquEstReg) VALUES (?, ?)";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class equipoDAO {
     }
 
     public void actualizar(equipo equi) {
-        String sql = "UPDATE equipos SET EquNom=?, EquEstReg=? WHERE EquCod=?";
+        String sql = "UPDATE equipos SET Attribute1=?, EquEstReg=? WHERE EquCod=?";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
@@ -93,10 +93,11 @@ public class equipoDAO {
     }
 
     public void borrar(int id) {
-        String sql = "DELETE FROM equipos WHERE EquCod=" + id;
+        String sql = "UPDATE equipos SET EquEstReg='*' WHERE EquCod=?";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al borrar: " + e);

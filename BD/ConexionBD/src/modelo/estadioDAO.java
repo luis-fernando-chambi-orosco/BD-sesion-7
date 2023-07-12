@@ -93,13 +93,15 @@ public class estadioDAO {
     }
 
     public void borrar(int id) {
-        String sql = "DELETE FROM estadio WHERE EstCod=" + id;
+        String sql = "UPDATE estadio SET EstEstReg='*' WHERE EstCod=?";
         try {
             con = conec.conectar();
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al borrar: " + e);
         }
     }
+    
 }
