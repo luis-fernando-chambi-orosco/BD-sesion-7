@@ -1,12 +1,18 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Controlador.controladorposiciones_cab;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -18,21 +24,21 @@ public class Interfaz_posiciones_cab extends JFrame {
 	private JTextField textFieldCodigo;
 	private JTextField textFieldCodigoLiga;
 	private JTextField textFieldEstadoRegistro;
+	private JButton btnAdicionar;
+	private JButton btnBorrar;
+	private JButton btnModificar;
+	private JButton btnReactivar;
+	private JButton btnInactivar;
+	private JButton btnActualizar;
+	private JButton btnSalir;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interfaz_posiciones_cab frame = new Interfaz_posiciones_cab();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		Interfaz_posiciones_cab vista=new Interfaz_posiciones_cab();
+		controladorposiciones_cab controladorres=new controladorposiciones_cab(vista);
 	}
 
 	/**
@@ -64,9 +70,18 @@ public class Interfaz_posiciones_cab extends JFrame {
 		lblNewLabel_1_1_1.setBounds(27, 121, 123, 14);
 		contentPane.add(lblNewLabel_1_1_1);
 		
+		JScrollPane tblTabla = new JScrollPane();
+		tblTabla.setBounds(27, 253, 355, 104);
+		contentPane.add(tblTabla);
+
 		table = new JTable();
-		table.setBounds(27, 253, 355, 104);
-		contentPane.add(table);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+			}
+		));
+		tblTabla.setViewportView(table);
 		
 		textFieldCodigo = new JTextField();
 		textFieldCodigo.setBounds(164, 56, 86, 20);
@@ -84,36 +99,166 @@ public class Interfaz_posiciones_cab extends JFrame {
 		textFieldEstadoRegistro.setBounds(164, 118, 86, 20);
 		contentPane.add(textFieldEstadoRegistro);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdicionar.setBounds(27, 184, 89, 23);
 		contentPane.add(btnAdicionar);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnModificar.setBounds(27, 218, 89, 23);
 		contentPane.add(btnModificar);
 		
-		JButton btnInactivar = new JButton("Inactivar");
+		btnInactivar = new JButton("Inactivar");
+		btnInactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInactivar.setBounds(164, 184, 89, 23);
 		contentPane.add(btnInactivar);
 		
-		JButton btnReactivar = new JButton("Reactivar");
+		btnReactivar = new JButton("Reactivar");
+		btnReactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnReactivar.setBounds(164, 219, 89, 23);
 		contentPane.add(btnReactivar);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnBorrar.setBounds(293, 184, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnActualizar.setBounds(293, 218, 89, 23);
 		contentPane.add(btnActualizar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnCancelar.setBounds(27, 373, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JButton btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSalir.setBounds(293, 373, 89, 23);
 		contentPane.add(btnSalir);
+
+		
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JTextField getTextFieldCodigo() {
+		return textFieldCodigo;
+	}
+
+	public void setTextFieldCodigo(JTextField textFieldCodigo) {
+		this.textFieldCodigo = textFieldCodigo;
+	}
+
+	public JTextField getTextFieldCodigoLiga() {
+		return textFieldCodigoLiga;
+	}
+
+	public void setTextFieldCodigoLiga(JTextField textFieldCodigoLiga) {
+		this.textFieldCodigoLiga = textFieldCodigoLiga;
+	}
+
+	public JTextField getTextFieldEstadoRegistro() {
+		return textFieldEstadoRegistro;
+	}
+
+	public void setTextFieldEstadoRegistro(JTextField textFieldEstadoRegistro) {
+		this.textFieldEstadoRegistro = textFieldEstadoRegistro;
+	}
+
+	public JButton getBtnAdicionar() {
+		return btnAdicionar;
+	}
+
+	public void setBtnAdicionar(JButton btnAdicionar) {
+		this.btnAdicionar = btnAdicionar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public void setBtnBorrar(JButton btnBorrar) {
+		this.btnBorrar = btnBorrar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
+	}
+
+	public JButton getBtnReactivar() {
+		return btnReactivar;
+	}
+
+	public void setBtnReactivar(JButton btnReactivar) {
+		this.btnReactivar = btnReactivar;
+	}
+
+	public JButton getBtnInactivar() {
+		return btnInactivar;
+	}
+
+	public void setBtnInactivar(JButton btnInactivar) {
+		this.btnInactivar = btnInactivar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
 	}
 }

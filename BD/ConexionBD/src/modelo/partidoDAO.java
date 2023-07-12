@@ -51,7 +51,7 @@ public class partidoDAO {
 	}
 
 	public void agregar(partido par) {
-		String sql = "insert into partido value (?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into partido value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = conec.conectar();
 			ps = con.prepareStatement(sql);
@@ -119,8 +119,22 @@ public class partidoDAO {
 		}
 	}
 
+		public void borradoLogico(partido par) {
+		String sql = "UPDATE partido SET ParEstReg=? WHERE ParCod=?";
+		try {
+			con = conec.conectar();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, par.getEstado());
+			ps.setInt(2, par.getCodigo());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("error al actualizar" + e);
+		}
+	}
+
 	public void volverActivo(partido par) {
-		String sql = "UPDATE partido SET JugEstReg=? WHERE ParCod=?";
+		String sql = "UPDATE partido SET ParEstReg=? WHERE ParCod=?";
 		try {
 			con = conec.conectar();
 			ps = con.prepareStatement(sql);

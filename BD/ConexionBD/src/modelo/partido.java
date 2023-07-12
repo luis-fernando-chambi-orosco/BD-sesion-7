@@ -25,8 +25,7 @@ public class partido {
 
     public partido(int codigo, String estadoCurso, int codigo_liga, int codigo_equipo_local,
             int codigo_equipo_visitante, int codigo_arbitro1, int codigo_arbitro2, int codigo_arbitro3, int año,
-            int mes, int dia, int hora_inicio, int hora_final, int goles_local, int goles_visitante, String estado,
-            int codigo_estadio) {
+            int mes, int dia, int hora_inicio, int hora_final, String estado, int codigo_estadio) {
         this.codigo = codigo;
         this.estadoCurso = estadoCurso;
         this.codigo_liga = codigo_liga;
@@ -64,6 +63,31 @@ public class partido {
         this.hora_final = hora_final;
         this.goles_local = 0;
         this.goles_visitante = 0;
+        this.estado = estado;
+        this.codigo_estadio = codigo_estadio;
+    }
+
+    
+
+    public partido(int codigo, String estadoCurso, int codigo_liga, int codigo_equipo_local,
+            int codigo_equipo_visitante, int codigo_arbitro1, int codigo_arbitro2, int codigo_arbitro3, int año,
+            int mes, int dia, int hora_inicio, int hora_final, int goles_local, int goles_visitante, String estado,
+            int codigo_estadio) {
+        this.codigo = codigo;
+        this.estadoCurso = estadoCurso;
+        this.codigo_liga = codigo_liga;
+        this.codigo_equipo_local = codigo_equipo_local;
+        this.codigo_equipo_visitante = codigo_equipo_visitante;
+        this.codigo_arbitro1 = codigo_arbitro1;
+        this.codigo_arbitro2 = codigo_arbitro2;
+        this.codigo_arbitro3 = codigo_arbitro3;
+        this.año = año;
+        this.mes = mes;
+        this.dia = dia;
+        this.hora_inicio = hora_inicio;
+        this.hora_final = hora_final;
+        this.goles_local = goles_local;
+        this.goles_visitante = goles_visitante;
         this.estado = estado;
         this.codigo_estadio = codigo_estadio;
     }

@@ -1,12 +1,18 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Controlador.controladorposiciones_det;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -27,21 +33,21 @@ public class Interfaz_posiciones_det extends JFrame {
 	private JTextField textFieldPartidosEmpatados;
 	private JTextField textFieldPartidosPerdidos;
 	private JTable table;
+	private JButton btnAdicionar;
+	private JButton btnBorrar;
+	private JButton btnModificar;
+	private JButton btnReactivar;
+	private JButton btnInactivar;
+	private JButton btnActualizar;
+	private JButton btnSalir;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interfaz_posiciones_det frame = new Interfaz_posiciones_det();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		Interfaz_posiciones_det vista=new Interfaz_posiciones_det();
+		controladorposiciones_det controladorposdet=new controladorposiciones_det(vista);
 	}
 
 	/**
@@ -170,41 +176,253 @@ public class Interfaz_posiciones_det extends JFrame {
 		textFieldPartidosPerdidos.setBounds(372, 130, 86, 20);
 		contentPane.add(textFieldPartidosPerdidos);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdicionar.setBounds(21, 187, 89, 23);
 		contentPane.add(btnAdicionar);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnModificar.setBounds(130, 187, 89, 23);
 		contentPane.add(btnModificar);
 		
-		JButton btnInactivar = new JButton("Inactivar");
+		btnInactivar = new JButton("Inactivar");
+		btnInactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInactivar.setBounds(254, 187, 89, 23);
 		contentPane.add(btnInactivar);
 		
-		JButton btnReactivar = new JButton("Reactivar");
+		btnReactivar = new JButton("Reactivar");
+		btnReactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnReactivar.setBounds(369, 187, 89, 23);
 		contentPane.add(btnReactivar);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnBorrar.setBounds(490, 187, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnActualizar.setBounds(594, 187, 89, 23);
 		contentPane.add(btnActualizar);
 		
+		JScrollPane tblTabla = new JScrollPane();
+		tblTabla.setBounds(23, 221, 657, 207);
+		contentPane.add(tblTabla);
+
 		table = new JTable();
-		table.setBounds(23, 221, 657, 207);
-		contentPane.add(table);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+			}
+		));
+		tblTabla.setViewportView(table);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnCancelar.setBounds(21, 439, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JButton btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSalir.setBounds(591, 439, 89, 23);
 		contentPane.add(btnSalir);
+
+		
+
+	}
+
+	public JTextField getTextFieldCodigo() {
+		return textFieldCodigo;
+	}
+
+	public void setTextFieldCodigo(JTextField textFieldCodigo) {
+		this.textFieldCodigo = textFieldCodigo;
+	}
+
+	public JTextField getTextFieldCodigoEquipo() {
+		return textFieldCodigoEquipo;
+	}
+
+	public void setTextFieldCodigoEquipo(JTextField textFieldCodigoEquipo) {
+		this.textFieldCodigoEquipo = textFieldCodigoEquipo;
+	}
+
+	public JTextField getTextFieldCodigoPosicionesCab() {
+		return textFieldCodigoPosicionesCab;
+	}
+
+	public void setTextFieldCodigoPosicionesCab(JTextField textFieldCodigoPosicionesCab) {
+		this.textFieldCodigoPosicionesCab = textFieldCodigoPosicionesCab;
+	}
+
+	public JTextField getTextFieldEstadoRegistro() {
+		return textFieldEstadoRegistro;
+	}
+
+	public void setTextFieldEstadoRegistro(JTextField textFieldEstadoRegistro) {
+		this.textFieldEstadoRegistro = textFieldEstadoRegistro;
+	}
+
+	public JTextField getTextFieldGolesFavor() {
+		return textFieldGolesFavor;
+	}
+
+	public void setTextFieldGolesFavor(JTextField textFieldGolesFavor) {
+		this.textFieldGolesFavor = textFieldGolesFavor;
+	}
+
+	public JTextField getTextFieldGolesContra() {
+		return textFieldGolesContra;
+	}
+
+	public void setTextFieldGolesContra(JTextField textFieldGolesContra) {
+		this.textFieldGolesContra = textFieldGolesContra;
+	}
+
+	public JTextField getTextFieldPuesto() {
+		return textFieldPuesto;
+	}
+
+	public void setTextFieldPuesto(JTextField textFieldPuesto) {
+		this.textFieldPuesto = textFieldPuesto;
+	}
+
+	public JTextField getTextFieldPuntaje() {
+		return textFieldPuntaje;
+	}
+
+	public void setTextFieldPuntaje(JTextField textFieldPuntaje) {
+		this.textFieldPuntaje = textFieldPuntaje;
+	}
+
+	public JTextField getTextFieldPartidosJugados() {
+		return textFieldPartidosJugados;
+	}
+
+	public void setTextFieldPartidosJugados(JTextField textFieldPartidosJugados) {
+		this.textFieldPartidosJugados = textFieldPartidosJugados;
+	}
+
+	public JTextField getTextFieldPartidosGanados() {
+		return textFieldPartidosGanados;
+	}
+
+	public void setTextFieldPartidosGanados(JTextField textFieldPartidosGanados) {
+		this.textFieldPartidosGanados = textFieldPartidosGanados;
+	}
+
+	public JTextField getTextFieldPartidosEmpatados() {
+		return textFieldPartidosEmpatados;
+	}
+
+	public void setTextFieldPartidosEmpatados(JTextField textFieldPartidosEmpatados) {
+		this.textFieldPartidosEmpatados = textFieldPartidosEmpatados;
+	}
+
+	public JTextField getTextFieldPartidosPerdidos() {
+		return textFieldPartidosPerdidos;
+	}
+
+	public void setTextFieldPartidosPerdidos(JTextField textFieldPartidosPerdidos) {
+		this.textFieldPartidosPerdidos = textFieldPartidosPerdidos;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JButton getBtnAdicionar() {
+		return btnAdicionar;
+	}
+
+	public void setBtnAdicionar(JButton btnAdicionar) {
+		this.btnAdicionar = btnAdicionar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public void setBtnBorrar(JButton btnBorrar) {
+		this.btnBorrar = btnBorrar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
+	}
+
+	public JButton getBtnReactivar() {
+		return btnReactivar;
+	}
+
+	public void setBtnReactivar(JButton btnReactivar) {
+		this.btnReactivar = btnReactivar;
+	}
+
+	public JButton getBtnInactivar() {
+		return btnInactivar;
+	}
+
+	public void setBtnInactivar(JButton btnInactivar) {
+		this.btnInactivar = btnInactivar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
 	}
 
 }

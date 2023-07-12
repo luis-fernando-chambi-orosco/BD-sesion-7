@@ -4,9 +4,18 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Controlador.controladorjugadores;
+import Controlador.controladorpartido;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -31,21 +40,25 @@ public class Interfaz_partido extends JFrame {
 	private JTextField textFieldGolLocal;
 	private JTextField textFieldCodigoVisitante;
 	private JTextField textFieldGolVisitante;
+	private JButton btnAdicionar;
+	private JButton btnBorrar;
+	private JButton btnModificar;
+	private JButton btnReactivar;
+	private JButton btnInactivar;
+	private JButton btnActualizar;
+	private JButton btnSalir;
+	private JButton btnCancelar;
+	private JComboBox<Integer> comboBoxDia;
+	private JComboBox<Integer> comboBoxMes;
+	private JComboBox<Integer> comboBoxAño;
+
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interfaz_partido frame = new Interfaz_partido();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		Interfaz_partido vista=new Interfaz_partido();
+		controladorpartido controladorpar=new controladorpartido(vista);
 	}
 
 	/**
@@ -65,15 +78,15 @@ public class Interfaz_partido extends JFrame {
 		lblNewLabel.setBounds(343, 11, 78, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Codigo del partido");
+		JLabel lblNewLabel_1 = new JLabel("Codigo");
 		lblNewLabel_1.setBounds(20, 52, 92, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Estado del partido");
+		JLabel lblNewLabel_2 = new JLabel("Estatus ");
 		lblNewLabel_2.setBounds(20, 77, 92, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Liga del partido");
+		JLabel lblNewLabel_3 = new JLabel("Liga");
 		lblNewLabel_3.setBounds(20, 102, 92, 14);
 		contentPane.add(lblNewLabel_3);
 		
@@ -86,7 +99,7 @@ public class Interfaz_partido extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("ARBITROS");
-		lblNewLabel_6.setBounds(583, 52, 51, 14);
+		lblNewLabel_6.setBounds(583, 52, 102, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Arbitro Principal");
@@ -101,7 +114,7 @@ public class Interfaz_partido extends JFrame {
 		lblNewLabel_7_2.setBounds(580, 127, 114, 14);
 		contentPane.add(lblNewLabel_7_2);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Estadio del partido");
+		JLabel lblNewLabel_1_1 = new JLabel("Estadio ");
 		lblNewLabel_1_1.setBounds(273, 52, 92, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
@@ -121,9 +134,18 @@ public class Interfaz_partido extends JFrame {
 		lblNewLabel_3_2.setBounds(20, 127, 92, 14);
 		contentPane.add(lblNewLabel_3_2);
 		
+		JScrollPane tblTabla = new JScrollPane();
+		tblTabla.setBounds(20, 268, 770, 120);
+		contentPane.add(tblTabla);
+
 		table = new JTable();
-		table.setBounds(20, 268, 770, 120);
-		contentPane.add(table);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+			}
+		));
+		tblTabla.setViewportView(table);
 		
 		textCodigo = new JTextField();
 		textCodigo.setBounds(122, 49, 102, 20);
@@ -198,51 +220,294 @@ public class Interfaz_partido extends JFrame {
 		textFieldGolVisitante.setBounds(502, 166, 28, 20);
 		contentPane.add(textFieldGolVisitante);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnModificar.setBounds(135, 231, 89, 23);
 		contentPane.add(btnModificar);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdicionar.setBounds(20, 231, 89, 23);
 		contentPane.add(btnAdicionar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnCancelar.setBounds(20, 399, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JButton btnInactivar = new JButton("Inactivar");
+		btnInactivar = new JButton("Inactivar");
+		btnInactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInactivar.setBounds(273, 231, 89, 23);
 		contentPane.add(btnInactivar);
 		
-		JButton btnReactivar = new JButton("Reactivar");
+		btnReactivar = new JButton("Reactivar");
+		btnReactivar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnReactivar.setBounds(441, 231, 89, 23);
 		contentPane.add(btnReactivar);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnBorrar.setBounds(583, 231, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnActualizar.setBounds(698, 231, 92, 23);
 		contentPane.add(btnActualizar);
 		
-		JComboBox comboBoxDia = new JComboBox();
+		comboBoxDia = new JComboBox<Integer>();
 		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", ""}));
 		comboBoxDia.setBounds(375, 73, 46, 22);
 		contentPane.add(comboBoxDia);
 		
-		JComboBox comboBoxMes = new JComboBox();
+		comboBoxMes = new JComboBox<Integer>();
 		comboBoxMes.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		comboBoxMes.setBounds(422, 73, 46, 22);
 		contentPane.add(comboBoxMes);
 		
-		JComboBox comboBoxAño = new JComboBox();
+		comboBoxAño = new JComboBox<Integer>();
 		comboBoxAño.setModel(new DefaultComboBoxModel(new String[] {"2023", "2024", "2025", "2026", "2027", "2028", "2029"}));
 		comboBoxAño.setBounds(470, 73, 60, 22);
 		contentPane.add(comboBoxAño);
 		
-		JButton btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSalir.setBounds(701, 399, 89, 23);
 		contentPane.add(btnSalir);
 	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JTextField getTextCodigo() {
+		return textCodigo;
+	}
+
+	public void setTextCodigo(JTextField textCodigo) {
+		this.textCodigo = textCodigo;
+	}
+
+	public JTextField getTextEstadoCurso() {
+		return textEstadoCurso;
+	}
+
+	public void setTextEstadoCurso(JTextField textEstadoCurso) {
+		this.textEstadoCurso = textEstadoCurso;
+	}
+
+	public JTextField getTextCodigoLiga() {
+		return textCodigoLiga;
+	}
+
+	public void setTextCodigoLiga(JTextField textCodigoLiga) {
+		this.textCodigoLiga = textCodigoLiga;
+	}
+
+	public JTextField getTextFieldEstadoRegistro() {
+		return textFieldEstadoRegistro;
+	}
+
+	public void setTextFieldEstadoRegistro(JTextField textFieldEstadoRegistro) {
+		this.textFieldEstadoRegistro = textFieldEstadoRegistro;
+	}
+
+	public JTextField getTextFieldCodigoEstadio() {
+		return textFieldCodigoEstadio;
+	}
+
+	public void setTextFieldCodigoEstadio(JTextField textFieldCodigoEstadio) {
+		this.textFieldCodigoEstadio = textFieldCodigoEstadio;
+	}
+
+	public JTextField getTextFieldHoraInicio() {
+		return textFieldHoraInicio;
+	}
+
+	public void setTextFieldHoraInicio(JTextField textFieldHoraInicio) {
+		this.textFieldHoraInicio = textFieldHoraInicio;
+	}
+
+	public JTextField getTextFieldHoraFinal() {
+		return textFieldHoraFinal;
+	}
+
+	public void setTextFieldHoraFinal(JTextField textFieldHoraFinal) {
+		this.textFieldHoraFinal = textFieldHoraFinal;
+	}
+
+	public JTextField getTextFieldArbitro1() {
+		return textFieldArbitro1;
+	}
+
+	public void setTextFieldArbitro1(JTextField textFieldArbitro1) {
+		this.textFieldArbitro1 = textFieldArbitro1;
+	}
+
+	public JTextField getTextFieldArbitro2() {
+		return textFieldArbitro2;
+	}
+
+	public void setTextFieldArbitro2(JTextField textFieldArbitro2) {
+		this.textFieldArbitro2 = textFieldArbitro2;
+	}
+
+	public JTextField getTextFieldArbitro3() {
+		return textFieldArbitro3;
+	}
+
+	public void setTextFieldArbitro3(JTextField textFieldArbitro3) {
+		this.textFieldArbitro3 = textFieldArbitro3;
+	}
+
+	public JTextField getTextFieldCodigoLocal() {
+		return textFieldCodigoLocal;
+	}
+
+	public void setTextFieldCodigoLocal(JTextField textFieldCodigoLocal) {
+		this.textFieldCodigoLocal = textFieldCodigoLocal;
+	}
+
+	public JTextField getTextFieldGolLocal() {
+		return textFieldGolLocal;
+	}
+
+	public void setTextFieldGolLocal(JTextField textFieldGolLocal) {
+		this.textFieldGolLocal = textFieldGolLocal;
+	}
+
+	public JTextField getTextFieldCodigoVisitante() {
+		return textFieldCodigoVisitante;
+	}
+
+	public void setTextFieldCodigoVisitante(JTextField textFieldCodigoVisitante) {
+		this.textFieldCodigoVisitante = textFieldCodigoVisitante;
+	}
+
+	public JTextField getTextFieldGolVisitante() {
+		return textFieldGolVisitante;
+	}
+
+	public void setTextFieldGolVisitante(JTextField textFieldGolVisitante) {
+		this.textFieldGolVisitante = textFieldGolVisitante;
+	}
+
+	public JButton getBtnAdicionar() {
+		return btnAdicionar;
+	}
+
+	public void setBtnAdicionar(JButton btnAdicionar) {
+		this.btnAdicionar = btnAdicionar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public void setBtnBorrar(JButton btnBorrar) {
+		this.btnBorrar = btnBorrar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
+	}
+
+	public JButton getBtnReactivar() {
+		return btnReactivar;
+	}
+
+	public void setBtnReactivar(JButton btnReactivar) {
+		this.btnReactivar = btnReactivar;
+	}
+
+	public JButton getBtnInactivar() {
+		return btnInactivar;
+	}
+
+	public void setBtnInactivar(JButton btnInactivar) {
+		this.btnInactivar = btnInactivar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
+	}
+
+	public JComboBox<Integer> getComboBoxDia() {
+		return comboBoxDia;
+	}
+
+	public void setComboBoxDia(JComboBox<Integer> comboBoxDia) {
+		this.comboBoxDia = comboBoxDia;
+	}
+
+	public JComboBox<Integer> getComboBoxMes() {
+		return comboBoxMes;
+	}
+
+	public void setComboBoxMes(JComboBox<Integer> comboBoxMes) {
+		this.comboBoxMes = comboBoxMes;
+	}
+
+	public JComboBox<Integer> getComboBoxAño() {
+		return comboBoxAño;
+	}
+
+	public void setComboBoxAño(JComboBox<Integer> comboBoxAño) {
+		this.comboBoxAño = comboBoxAño;
+	}
+
+
+
 }
